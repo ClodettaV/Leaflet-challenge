@@ -114,28 +114,24 @@ var myMap = L.map("map", {
 L.control.layers(baseMaps, overlayMaps, {
   collapsed: false
 }).addTo(myMap);
-}
-
-
-
-
 
 
 
 // Set Up Legend
-var legend = L.control({ position: "bottomright" });
+var legend = L.control({ position: "bottomleft" });
 legend.onAdd = function() {
     var div = L.DomUtil.create("div", "info legend"), 
-    magnitudeLevels = [0, 1, 2, 3, 4, 5];
+    magnitude_levels = [0, 1, 2, 3, 4, 5];
 
     div.innerHTML += "<h3>Magnitude</h3>"
 
-    for (var i = 0; i < magnitudeLevels.length; i++) {
+    for (var i = 0; i < magnitude_levels.length; i++) {
         div.innerHTML +=
-            '<i style="background: ' + chooseColor(magnitudeLevels[i] + 1) + '"></i> ' +
-            magnitudeLevels[i] + (magnitudeLevels[i + 1] ? '&ndash;' + magnitudeLevels[i + 1] + '<br>' : '+');
+            '<i style="background: ' + chooseColor(magnitude_levels[i] + 1) + '"></i> ' +
+            magnitude_levels[i] + (magnitude_levels[i + 1] ? '&ndash;' + magnitude_levels[i + 1] + '<br>' : '+');
     }
     return div;
 };
 // Add Legend to the Map
-legend.addTo(map);
+legend.addTo(myMap)
+}
