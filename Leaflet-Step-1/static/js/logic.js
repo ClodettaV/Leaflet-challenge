@@ -117,7 +117,7 @@ L.control.layers(baseMaps, overlayMaps, {
 
 
 
-// Set Up Legend
+// Legend
 var legend = L.control({ position: "bottomleft" });
 legend.onAdd = function() {
     var div = L.DomUtil.create("div", "info legend"), 
@@ -132,6 +132,6 @@ legend.onAdd = function() {
     }
     return div;
 };
-// Add Legend to the Map
+
 legend.addTo(myMap)
 }
